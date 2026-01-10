@@ -34,10 +34,13 @@ document.addEventListener("DOMContentLoaded", function(){
         let enemies=document.getElementById("enemies");
         let boss1=document.getElementById("boss1");
         let boss2=document.getElementById("boss2");
+        let main=document.getElementsByClassName("page1");
         if (boss1.style.display==="none" && boss2.style.display==="none"){
             toggle(instructions);
             toggle(summoning);
         }
+        main[0].removeAttribute("id");
+        main[0].id="back1";
         toggle(enemies);
         removeOnlyToggle(boss1);
         removeOnlyToggle(boss2);
@@ -52,10 +55,13 @@ document.addEventListener("DOMContentLoaded", function(){
         let enemies=document.getElementById("enemies");
         let boss1=document.getElementById("boss1");
         let boss2=document.getElementById("boss2");
+        let main=document.getElementsByClassName("page1")
+        let exampleId="back2"
         if (enemies.style.display==="none" && boss2.style.display==="none"){
             toggle(instructions);
             toggle(summoning);
         }
+        toggle2(main,exampleId);
         removeOnlyToggle(enemies);
         toggle(boss1);
         removeOnlyToggle(boss2);
@@ -70,10 +76,13 @@ document.addEventListener("DOMContentLoaded", function(){
         let enemies=document.getElementById("enemies");
         let boss1=document.getElementById("boss1");
         let boss2=document.getElementById("boss2");
+        let main=document.getElementsByClassName("page1");
+        let exampleId="back3";
         if (enemies.style.display==="none" && boss1.style.display==="none"){
             toggle(instructions);
             toggle(summoning);
         }
+        toggle2(main,exampleId);
         removeOnlyToggle(enemies);
         removeOnlyToggle(boss1);
         toggle(boss2);
@@ -87,6 +96,13 @@ function toggle(div){
         div.style.display="block";
     } else {
         div.style.display="none";
+    }
+}
+function toggle2(main,exampleId){
+    if (main[0].id===exampleId){
+        main[0].id="back1";
+    }else{
+        main[0].id=exampleId;
     }
 }
 function removeOnlyToggle(div){

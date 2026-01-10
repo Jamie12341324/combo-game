@@ -33,6 +33,9 @@
 .boss2-text-color{
     color:var(--text-color3)
 }
+.battleBold{
+    font-weight: bold;
+}
 #back2 {
     background-image: url(../images/images-for-website/backboss1.jpg);
     width: 100%;
@@ -52,7 +55,4 @@
 }
 .space2{
     padding-top:50px;
-}
-.startHidden{
-    display: none;
 }
