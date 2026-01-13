@@ -44,8 +44,32 @@ document.addEventListener("DOMContentLoaded", function(){
         toggle(enemies);
         removeOnlyToggle(boss1);
         removeOnlyToggle(boss2);
+        clearInterval(allyBold);
+        clearInterval(enemyBold);
+        let ally=document.getElementById("ally1");
+        ally.classList.remove("battleBold");
+        boss2.classList.remove("battleBold");
         // let page=document.getElementsByClassName("page1");
         // page.appendChild(document.getElementsByClassName("page3"));
+    })
+    let attackButton1=document.getElementById("attackEnemy1");
+    attackButton1.addEventListener("click", function(){
+        let ally=document.getElementById("ally1");
+        let enemy=document.getElementById("enemy1");
+        // alert(ally.classList.contains("battleBold"));
+        allyBold=setInterval(makeBold,0,ally,1000);
+        enemyBold=setInterval(makeBold,0,enemy,1000);
+        setTimeout(() => {
+        clearInterval(allyBold)
+        clearInterval(enemyBold)
+        ally.classList.remove("battleBold");
+        enemy.classList.remove("battleBold");
+        },4000)
+        attackButton1.disabled=true;
+        setTimeout(() => {
+            attackButton1.disabled=false;
+        },4000)
+        // ally.classList.add("battleBold");
     })
     let battleButton2=document.getElementById("battleBoss1");
     battleButton2.addEventListener("click", function(){
@@ -65,8 +89,31 @@ document.addEventListener("DOMContentLoaded", function(){
         removeOnlyToggle(enemies);
         toggle(boss1);
         removeOnlyToggle(boss2);
+        clearInterval(allyBold);
+        clearInterval(enemyBold);
+        let ally=document.getElementById("ally1");
+        ally.classList.remove("battleBold");
+        boss2.classList.remove("battleBold");
         // let page=document.getElementsByClassName("page1");
         // page.appendChild(document.getElementsByClassName("page3"));
+    })
+    let attackButton2=document.getElementById("attackBoss1");
+    attackButton2.addEventListener("click", function(){
+        let ally=document.getElementById("ally1");
+        let boss1=document.getElementById("boss1");
+        // alert(ally.classList.contains("battleBold"));
+        allyBold=setInterval(makeBold,0,ally,1000);
+        enemyBold=setInterval(makeBold,0,boss1,1000);
+        setTimeout(() => {
+        clearInterval(allyBold)
+        clearInterval(enemyBold)
+        ally.classList.remove("battleBold");
+        boss1.classList.remove("battleBold");
+        },4000);
+        attackButton2.disabled=true;
+        setTimeout(() => {
+            attackButton2.disabled=false;
+        },4000);
     })
     let battleButton3=document.getElementById("battleBoss2");
     battleButton3.addEventListener("click", function(){
@@ -86,10 +133,33 @@ document.addEventListener("DOMContentLoaded", function(){
         removeOnlyToggle(enemies);
         removeOnlyToggle(boss1);
         toggle(boss2);
+        clearInterval(allyBold)
+        clearInterval(enemyBold)
+        let ally=document.getElementById("ally1");
+        ally.classList.remove("battleBold");
+        boss2.classList.remove("battleBold");
         // let page=document.getElementsByClassName("page1");
         // page.appendChild(document.getElementsByClassName("page3"));
     })
-    setInterval(checkNum,1000);
+    let attackButton3=document.getElementById("attackBoss2");
+    attackButton3.addEventListener("click", function(){
+        let ally=document.getElementById("ally1");
+        let boss2=document.getElementById("boss2");
+        // alert(ally.classList.contains("battleBold"));
+        allyBold=setInterval(makeBold,0,ally,1000);
+        enemyBold=setInterval(makeBold,0,boss2,1000);
+        setTimeout(() => {
+        clearInterval(allyBold)
+        clearInterval(enemyBold)
+        ally.classList.remove("battleBold");
+        boss2.classList.remove("battleBold");
+        },4000);
+        attackButton3.disabled=true;
+        setTimeout(() => {
+            attackButton3.disabled=false;
+        },4000)
+    })
+    checker=setInterval(checkNum,1000);
 })
 function toggle(div){
     if (div.style.display === "none"){
@@ -108,6 +178,15 @@ function toggle2(main,exampleId){
 function removeOnlyToggle(div){
     if (div.style.display === "block"){
         div.style.display="none";
+    }
+}
+function makeBold(p,r){
+    // alert(p.classList.contains("battleBold"));
+    // alert(p.classList.length);
+    if (p.classList.contains("battleBold")==false){
+        p.classList.add("battleBold");
+    }else{
+        p.classList.remove("battleBold");
     }
 }
 function checkNum(){
@@ -156,3 +235,8 @@ function comboMaker(num1,num2){
     }
     return combo;
 }
+function exchange(credits,cost){
+    let remainder=credits-cost;
+    return remainder;
+}
+module.exports = exchange;
