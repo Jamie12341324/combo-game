@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function(){
             let para=document.createElement("p");
             para.id="ally"+allyNum;
             para.setAttribute("class","ally-text-color");
+            let power="power"+Math.floor(Math.random()*20+1);
+            para.classList.add(power);
             para.innerText=combo;
             reference=allyDiv1.children[allyDiv1.children.length-4];
             allyDiv1.insertBefore(para,reference);
@@ -246,6 +248,7 @@ function comboMaker(num1,num2){
     }
     return combo;
 }
+// exchange works out if you can buy something and passes back the new amount of money you have after you buy something 
 function exchange(credits,cost){
     let remainder=credits-cost;
     if (remainder<0){

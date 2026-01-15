@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Document</title>
 </head>
-<body>
-    <main id="back1" class="page1">
+<body id="back1" class="page1">
+    <main >
     <!-- <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -53,15 +53,15 @@
 </div> -->
     <div class="container">
     <div class="row">
-    <div class="col-12 col-md-6 col-xl-3 space box" id="instructions">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="instructions">
     <h1 class="instructions-text-color">Instructions</h1>
-    <p class="instructions-text-color">Create combos by choosing 2 numbers and summoning them to using credits. Gain credits by defeating enemies and bosses.
+    <p class="instructions-text-color">Create combos by choosing 2 numbers and summoning them using money. Gain money by defeating enemies and bosses.
         After each battle allied combos respawn. Each combo has a power level after 2 combos battle the combo with the higher power level defeats the opponent
         and the higher power level one has its power level reduced by its opponents power level until the combos respawn after the battles. To find enemies click on either
         Enemy, Boss1 or Boss 2 at the top left on the navbar.
     </p>
     </div>
-    <div class="col-12 col-md-6 col-xl-3 space box" id="summoning">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="summoning">
     <h1 class="instructions-text-color">Summoning</h1>
     <h2 id="money" class="instructions-text-color space2">Money=8</h2>
     <br>
@@ -69,28 +69,29 @@
     <input id="answer-box" type="number">
     <label for="answer-box2" class="instructions-text-color">Number of letters long the combo will be</label>
     <input id="answer-box2" type="number">
+    <br>
     <h2 id="cost" class="instructions-text-color space2">Cost=</h2>
     <br>
     <button id="generator" data-type="submit" class="btn create-btn-color">Summon</button>
     </div>
-    <div class="col-12 col-md-6 col-xl-3 space box" id="allyDiv">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="allyDiv">
     <h1 class="ally-text-color">Allied combos</h1>
     <p id="ally1" class="ally-text-color">bbb</p>
     <button id="battleEnemy" class="btn create-btn-color">Battle enemies</button>
     <button id="battleBoss1" class="btn create-btn-color">Battle Boss 1</button>
     <button id="battleBoss2" class="btn create-btn-color">Battle Boss 2</button>
     </div>
-    <div class="col-12 col-md-6 col-xl-3 space box startHidden" id="enemies">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box startHidden" id="enemies">
     <h1 class="ally-text-color">Enemy combos</h1>
     <p id="enemy1" class="ally-text-color">bbb</p>
     <button id="attackEnemy1" class="btn create-btn-color">Attack</button>
     </div>
-    <div class="col-12 col-md-6 col-xl-4 space box startHidden" id="boss1">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box startHidden" id="boss1">
     <h1 class="boss1-text-color">Boss 1 combo</h1>
     <p id="boss1" class="boss1-text-color">bab</p>
     <button id="attackBoss1" class="btn create-btn-color">Attack</button>
     </div>
-    <div class="col-12 col-md-6 col-xl-4 space box startHidden" id="boss2">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box startHidden" id="boss2">
     <h1 class="boss2-text-color">Boss 2 combo</h1>
     <p id="boss2" class="boss2-text-color">aba</p>
     <button id="attackBoss2" class="btn create-btn-color">Attack</button>
