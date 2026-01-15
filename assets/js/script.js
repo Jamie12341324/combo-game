@@ -1,34 +1,46 @@
+// Sets up the values of the input boxs to 0 
+// hides the enemy boss1 and boss2 divs
 document.addEventListener("DOMContentLoaded", function(){
-    // loadElements()
     let button=document.getElementById("generator");
     document.getElementById("answer-box").value=0
     document.getElementById("answer-box2").value=0
     let enemies=document.getElementById("enemies");
     let boss1=document.getElementById("boss1");
     let boss2=document.getElementById("boss2");
-    enemies.style.display="none"
-    boss1.style.display="none"
-    boss2.style.display="none"
+    enemies.style.display="none";
+    boss1.style.display="none";
+    boss2.style.display="none";
+    // Reads the numbers from the answer box uses comboMaker to make a combo 
+    // and adds it to the end of the list of allied combos 
     button.addEventListener("click", function(){
         let num1=parseInt(document.getElementById("answer-box").value);
         let num2=parseInt(document.getElementById("answer-box2").value);
-        // let num=num1+num2;
-        let combo=comboMaker(num1,num2);
-        let allyDiv1=document.getElementById("allyDiv");
-        let paraOld=allyDiv1.lastElementChild;
-        alert(paraOld.id);
-        let allyNum=parseInt(paraOld.id.substring(4,5));
-        let para=document.createElement("p");
-        para.id="ally"+allyNum;
-        para.setAttribute("class","ally-text-color");
-        para.innerText=combo;
-        reference=allyDiv1.children[allyDiv1.children.length-4]
-        allyDiv1.insertBefore(para,reference);
-        alert(combo);
+        let cost=num1+num2;
+        moneystr=document.getElementById("money").innerText
+        L=moneystr.length;
+        let money=parseInt(moneystr.substring(6,L));
+        let money1=exchange(money,cost);
+        alert(money1);
+        if (money!=money1){
+            document.getElementById("money").innerText="Money = "+money1;
+            let combo=comboMaker(num1,num2);
+            let allyDiv1=document.getElementById("allyDiv");
+            let paraOld=allyDiv1.lastElementChild;
+            alert(paraOld.id);
+            let allyNum=parseInt(paraOld.id.substring(4,5));
+            let para=document.createElement("p");
+            para.id="ally"+allyNum;
+            para.setAttribute("class","ally-text-color");
+            para.innerText=combo;
+            reference=allyDiv1.children[allyDiv1.children.length-4];
+            allyDiv1.insertBefore(para,reference);
+            alert(combo);
+        }
     })
+    // Adds a EventListener to a button that toggles the screen to a enemy background image
+    // ends the flipping between bold and regular if it is happening and sets the text to regular
     let battleButton=document.getElementById("battleEnemy");
     battleButton.addEventListener("click", function(){
-        // Add toggle for enemy and boss divs
         let instructions=document.getElementById("instructions");
         let summoning=document.getElementById("summoning");
         let enemies=document.getElementById("enemies");
@@ -49,14 +61,14 @@ document.addEventListener("DOMContentLoaded", function(){
         let ally=document.getElementById("ally1");
         ally.classList.remove("battleBold");
         boss2.classList.remove("battleBold");
-        // let page=document.getElementsByClassName("page1");
-        // page.appendChild(document.getElementsByClassName("page3"));
     })
+    // Adds a EventListener to a button that starts a battle between the boss and allied combos
+    // where the combos are shown to be fighting by swaping between bold and regular text
+    // it also disables the button while the battle is taking place so the system does not glitch
     let attackButton1=document.getElementById("attackEnemy1");
     attackButton1.addEventListener("click", function(){
         let ally=document.getElementById("ally1");
         let enemy=document.getElementById("enemy1");
-        // alert(ally.classList.contains("battleBold"));
         allyBold=setInterval(makeBold,0,ally,1000);
         enemyBold=setInterval(makeBold,0,enemy,1000);
         setTimeout(() => {
@@ -69,11 +81,11 @@ document.addEventListener("DOMContentLoaded", function(){
         setTimeout(() => {
             attackButton1.disabled=false;
         },4000)
-        // ally.classList.add("battleBold");
     })
+    // Adds a EventListener to a button that toggles the screen to a boss 1 background image
+    // ends the flipping between bold and regular if it is happening and sets the text to regular
     let battleButton2=document.getElementById("battleBoss1");
     battleButton2.addEventListener("click", function(){
-        // Add toggle for enemy and boss divs
         let instructions=document.getElementById("instructions");
         let summoning=document.getElementById("summoning");
         let enemies=document.getElementById("enemies");
@@ -94,14 +106,14 @@ document.addEventListener("DOMContentLoaded", function(){
         let ally=document.getElementById("ally1");
         ally.classList.remove("battleBold");
         boss2.classList.remove("battleBold");
-        // let page=document.getElementsByClassName("page1");
-        // page.appendChild(document.getElementsByClassName("page3"));
     })
+    // Adds a EventListener to a button that starts a battle between the boss and allied combos
+    // where the combos are shown to be fighting by swaping between bold and regular text
+    // it also disables the button while the battle is taking place so the system does not glitch
     let attackButton2=document.getElementById("attackBoss1");
     attackButton2.addEventListener("click", function(){
         let ally=document.getElementById("ally1");
         let boss1=document.getElementById("boss1");
-        // alert(ally.classList.contains("battleBold"));
         allyBold=setInterval(makeBold,0,ally,1000);
         enemyBold=setInterval(makeBold,0,boss1,1000);
         setTimeout(() => {
@@ -115,9 +127,10 @@ document.addEventListener("DOMContentLoaded", function(){
             attackButton2.disabled=false;
         },4000);
     })
+    // Adds a EventListener to a button that toggles the screen to a boss 2 background image
+    // ends the flipping between bold and regular if it is happening and sets the text to regular
     let battleButton3=document.getElementById("battleBoss2");
     battleButton3.addEventListener("click", function(){
-        // Add toggle for enemy and boss divs
         let instructions=document.getElementById("instructions");
         let summoning=document.getElementById("summoning");
         let enemies=document.getElementById("enemies");
@@ -138,14 +151,14 @@ document.addEventListener("DOMContentLoaded", function(){
         let ally=document.getElementById("ally1");
         ally.classList.remove("battleBold");
         boss2.classList.remove("battleBold");
-        // let page=document.getElementsByClassName("page1");
-        // page.appendChild(document.getElementsByClassName("page3"));
     })
+    // Adds a EventListener to a button that starts a battle between the boss and allied combos
+    // where the combos are shown to be fighting by swaping between bold and regular text
+    // it also disables the button while the battle is taking place so the system does not glitch
     let attackButton3=document.getElementById("attackBoss2");
     attackButton3.addEventListener("click", function(){
         let ally=document.getElementById("ally1");
         let boss2=document.getElementById("boss2");
-        // alert(ally.classList.contains("battleBold"));
         allyBold=setInterval(makeBold,0,ally,1000);
         enemyBold=setInterval(makeBold,0,boss2,1000);
         setTimeout(() => {
@@ -161,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function(){
     })
     checker=setInterval(checkNum,1000);
 })
+// hides a div if it is visible and shows it if it is not
 function toggle(div){
     if (div.style.display === "none"){
         div.style.display="block";
@@ -168,6 +182,7 @@ function toggle(div){
         div.style.display="none";
     }
 }
+// toggle2 changes a id to back1 if it is already a certain id and changes it to that id if it is not
 function toggle2(main,exampleId){
     if (main[0].id===exampleId){
         main[0].id="back1";
@@ -175,33 +190,29 @@ function toggle2(main,exampleId){
         main[0].id=exampleId;
     }
 }
+// removeOnlyToggle hides a div if that div is visible
 function removeOnlyToggle(div){
     if (div.style.display === "block"){
         div.style.display="none";
     }
 }
+// makeBold adds a class to make text bold if that class is not already there and removes it if it is
 function makeBold(p,r){
-    // alert(p.classList.contains("battleBold"));
-    // alert(p.classList.length);
     if (p.classList.contains("battleBold")==false){
         p.classList.add("battleBold");
     }else{
         p.classList.remove("battleBold");
     }
 }
+// checkNum gets numbers from input boxs and updates the cost of the selection
 function checkNum(){
     let num1=parseInt(document.getElementById("answer-box").value);
     let num2=parseInt(document.getElementById("answer-box2").value);
     let cost=num1+num2;
-    document.getElementById("cost").innerText="Cost = " + cost;
+    document.getElementById("cost").innerText="Cost=" + cost;
 }
-// function loadElements(){
-//     const saved = localStorage.getItem("ally4");
-//     if (saved){
-//         let allyDiv1=document.getElementById("allyDiv");
-//         allyDiv1=saved;
-//     }
-// }
+// comboMaker makes a sequence of letters with num1 as the length of the sequence
+// and num2 as how many different letters can appear
 function comboMaker(num1,num2){
     let c=0;
     let letters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -237,6 +248,10 @@ function comboMaker(num1,num2){
 }
 function exchange(credits,cost){
     let remainder=credits-cost;
+    if (remainder<0){
+        alert("You don't have the credits for that");
+        return credits;
+    }
     return remainder;
 }
 module.exports = exchange;
