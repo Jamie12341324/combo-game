@@ -49,18 +49,18 @@ document.addEventListener("DOMContentLoaded", function(){
             document.getElementById("money").innerText="Money="+money1;
             let combo=comboMaker(num1,num2);
             let allyDiv1=document.getElementById("allyDiv");
-            let paraOld=allyDiv1.lastElementChild;
+            let paraOld=allyDiv1.children[allyDiv1.children.length-4];
             alert(paraOld.id);
-            let allyNum=parseInt(paraOld.id.substring(4,5));
+            let allyNum=parseInt(paraOld.id.substring(4,5))+1;
+            alert("paraOld.id.substring(3,4)"+allyNum);
             let para=document.createElement("p");
             para.id="ally"+allyNum;
             para.setAttribute("class","ally-text-color");
             let power="power"+Math.floor(Math.random()*20+1);
             para.classList.add(power);
             para.innerText=combo;
-            reference=allyDiv1.children[allyDiv1.children.length-4];
+            reference=allyDiv1.children[allyDiv1.children.length-3];
             allyDiv1.insertBefore(para,reference);
-            alert(combo);
             updateGlobals();
         }
     })
@@ -85,11 +85,9 @@ document.addEventListener("DOMContentLoaded", function(){
         removeOnlyToggle(boss2);
         let c=0;
         allyDiv=document.getElementById("allyDiv")
-        alert(allyBold);
         while (c<allyBold.length){
             if (allyBold[c]){
                 clearInterval(allyBold[c]);
-                alert("cleared interval");
             }
             if (c<allyDiv.children.length-4){
                 i=c+1;
@@ -170,7 +168,6 @@ document.addEventListener("DOMContentLoaded", function(){
         while (c<allyBold.length){
             if (allyBold[c]){
                 clearInterval(allyBold[c]);
-                alert("cleared interval");
             }
             if (c<allyDiv.children.length-4){
                 i=c+1;
@@ -247,7 +244,6 @@ document.addEventListener("DOMContentLoaded", function(){
         while (c<allyBold.length){
             if (allyBold[c]){
                 clearInterval(allyBold[c]);
-                alert("cleared interval");
             }
             if (c<allyDiv.children.length-4){
                 i=c+1;
@@ -263,9 +259,9 @@ document.addEventListener("DOMContentLoaded", function(){
             
         }
         let c2=0;
-        while (c2<enemyBold){
+        while (c2<enemyBold.length){
             if (enemyBold[c2]){
-                clearInterval(enemyBold[c2]);
+            clearInterval(enemyBold[c2]);
             }
             if (enemyTimeStart[c2]){
             clearTimeout(enemyTimeStart[c2]);
@@ -276,6 +272,11 @@ document.addEventListener("DOMContentLoaded", function(){
             c2=c2+1;
         }
         addOnlyToggle(boss2.children[1]);
+        if (disButton){
+            clearTimeout(disButton);
+            let attackButton3=document.getElementById("attackBoss2");
+            attackButton3.disabled=false;
+        }
     })
     // Adds a EventListener to a button that starts a battle between the boss and allied combos
     // where the combos are shown to be fighting by swaping between bold and regular text
@@ -422,20 +423,24 @@ function enemyPower(){
 }
 // battleSim finds the higher power and if a ally or enemy has won and toggles the loser on a loop doing all the enemies and allies
 function battleSim(foeId,attackButton){
-    updateGlobals()
+    updateGlobals();
+    let allyList=allyPower();
+    let enemyList=enemyPower();
+    let L=allyList.length;
+    let L2=enemyList.length;
     let c=0;
     let c2=0;
     while (c<L && c2<L2){
         if (allyList[c]<=enemyList[c2]){
             enemyList[c2]=enemyList[c2]-allyList[c];
-            console.log("ally"+allyList[c]);
             c=c+1;
-            i2=c2+1
-            p=document.getElementById("ally"+c);
-            p2=getEnemy(i,foeId);
-            allyBold[c-1]=setInterval(makeBold,0,p,1000);
-            alert(allyBold);
-            enemyBold[c2]=setInterval(makeBold,0,p2,1000);
+            i2=c2+1;
+            setTimeout(() => {
+                p=document.getElementById("ally"+c);
+                p2=getEnemy(i2,foeId);
+                allyBold[c-1]=setInterval(makeBold,0,p,1000);
+                enemyBold[c2]=setInterval(makeBold,0,p2,1000);
+            },4000*(c+c2-1))
             setTimeout(() => {
             if (allyBold[c-1]){
                 clearInterval(allyBold[c-1]);
@@ -445,22 +450,25 @@ function battleSim(foeId,attackButton){
             }
             p.classList.remove("battleBold");
             p2.classList.remove("battleBold");
-            alert(allyBold);
             },4000*(c+c2));
             allyTimeStart[c-1]=setTimeout(() => {
+            p=document.getElementById("ally"+c);
             toggle(p);
             },4000*(c+c2))
             allyTimeEnd[c-1]=setTimeout(() => {
+            p=document.getElementById("ally"+c);
             toggle(p);
             },4000*(L+L2))
         }else if (allyList[c]>enemyList[c2]){
             allyList[c]=allyList[c]-enemyList[c2];
             c2=c2+1;
-            i=c+1
-            p=document.getElementById("ally"+i);
-            p2=getEnemy(c2,foeId);
-            allyBold[c]=setInterval(makeBold,0,p,1000);
-            enemyBold[c2-1]=setInterval(makeBold,0,p2,1000);
+            i=c+1;
+            setTimeout(() => {
+                p=document.getElementById("ally"+i);
+                p2=getEnemy(c2,foeId);
+                allyBold[c]=setInterval(makeBold,0,p,1000);
+                enemyBold[c2-1]=setInterval(makeBold,0,p2,1000);
+            },4000*(c+c2-1))
             setTimeout(() => {
             if (allyBold[c]){
                 clearInterval(allyBold[c]);
@@ -471,11 +479,12 @@ function battleSim(foeId,attackButton){
             p.classList.remove("battleBold");
             p2.classList.remove("battleBold");
             },4000*(c+c2));
-            toggle(p2);
             enemyTimeStart[c2-1]=setTimeout(() => {
+            p2=getEnemy(c2,foeId);
             toggle(p2);
             },4000*(c+c2))
             enemyTimeEnd[c2-1]=setTimeout(() => {
+            p2=getEnemy(c2,foeId);
             toggle(p2);
             },4000*(L+L2))
         }
@@ -484,7 +493,7 @@ function battleSim(foeId,attackButton){
     }
     // clear timeout for button
     attackButton.disabled=true;
-    setTimeout(() => {
+    let disButton=setTimeout(() => {
         attackButton.disabled=false;
     },4000*(L+L2))}
 // returns the next enemy to be processed by battleSim depending on the foeId which changes depending on which button was clicked to rigger battleSim
