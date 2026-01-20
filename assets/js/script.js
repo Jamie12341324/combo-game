@@ -414,14 +414,13 @@ function enemyPower(){
         let enemy=document.getElementById("enemy"+i);
         console.log("enemy",enemy);
         let power=enemy.classList[1].substring(5,enemy.classList[1].length);
-        // let power=ally.classList[1][5];
         console.log("power"+power);
         enemyList[c3]=power;
         c3=c3+1;
     }
     return enemyList
 }
-// battleSim works out if a ally or enemy has won and toggles the loser
+// battleSim finds the higher power and if a ally or enemy has won and toggles the loser on a loop doing all the enemies and allies
 function battleSim(foeId,attackButton){
     updateGlobals()
     let c=0;
