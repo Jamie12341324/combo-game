@@ -1,61 +1,76 @@
+/* text color variables so that you can change one thing in the root and change everything with that variable as to not make mistakes */
 :root{
     --text-color1:white;
     --text-color2:gold;
     --text-color3:pink;
 }
+/* default background image for the home page */
 #back1 {
     background-image: url(../images/images-for-website/portal.jpg);
-    /* background-color: red; */
     width: 100%;
 }
+/* white text to stand out against the background */
 .ally-text-color{
     color:var(--text-color1)
 }
+/* white text to stand out against the background */
 .instructions-text-color{
     color:var(--text-color1)
 }
+/* makes the background of the buttons black so they stand out */
 .create-btn-color{
     background-color: black;
     color:white;
     outline: white;
     margin:35px;
 }
+/* changes the button color to blue when you hover over it to fit with the theme of blue like with the blue portal background image */
 .create-btn-color:hover{
     background-color: cyan;
     color:black;
     outline: black;
     outline-width: 50px;
 }
+/* text color to stand out against the boss1 background image */
 .boss1-text-color{
     color:var(--text-color2)
 }
+/* text color to stand out against the boss2 background image */
 .boss2-text-color{
     color:var(--text-color3)
 }
+/* the bold is toggled on a interval so that it likes text representing combos/soliders can look like it is fighting */
 .battleBold{
     font-weight: bold;
 }
+/* background image for the first boss */
 #back2 {
     background-image: url(../images/images-for-website/backboss1.jpg);
     width: 100%;
 }
+/* background image for the second boss */
 #back3 {
     background-image: url(../images/images-for-website/backboss2.jpg);
     width: 100%;
 }
+/* partly see through black background to help make divs/text stand out better against the background */
+/* also margins so that things are not stuck together */
 .box{
     background-color: rgba(9, 9, 9, 0.5);
     margin:50px;
     margin-bottom: 10px;
 }
+/* makes sure the text is in space with padding and centered with margin auto and is seperated from things above it for divs*/
 .space{
     margin:auto;
     padding:100px;
     margin-top:50px;
 }
+/* makes sure text elements like money have enough space */
 .space2{
     padding-top:50px;
 }
+/* puts the title (Fantasy battle game) in the middle of the screen */
 .text-center{
     text-align:center;
 }
