@@ -54,9 +54,7 @@ document.addEventListener("DOMContentLoaded", function(){
             let combo=comboMaker(num1,num2);
             let allyDiv1=document.getElementById("allyDiv");
             let paraOld=allyDiv1.children[allyDiv1.children.length-4];
-            // alert(paraOld.id);
             let allyNum=parseInt(paraOld.id.substring(4,5))+1;
-            // alert("paraOld.id.substring(3,4)"+allyNum);
             let para=document.createElement("p");
             para.id="ally"+allyNum;
             para.setAttribute("class","ally-text-color");
@@ -87,76 +85,12 @@ document.addEventListener("DOMContentLoaded", function(){
         toggle(enemies);
         removeOnlyToggle(boss1);
         removeOnlyToggle(boss2);
-        // let c=0;
-        // allyDiv=document.getElementById("allyDiv")
-        // while (c<allyBold.length){
-        //     alert("allyBold.length"+allyBold.length)
-        //     if (allyBold[c]){
-        //         clearInterval(allyBold[c]);
-        //     }
-        //     if (c<allyDiv.children.length-4){
-        //         i=c+1;
-        //         addOnlyToggle(document.getElementById("ally"+i));
-        //     }
-        //     if (allyTimeStart[c]){
-        //     clearTimeout(allyTimeStart[c]);
-        //     }
-        //     if (allyTimeEnd[c]){
-        //     clearTimeout(allyTimeEnd[c]);
-        //     }
-        //     c=c+1;
-        // }
-        // let c2=0;
-        // while (c2<enemyBold.length){
-        //     alert("enemyBold.length"+enemyBold.length);
-        //     if (enemyBold[c2]){
-        //         clearInterval(enemyBold[c2]);
-        //     }
-        //     if (c2<enemies.children.length-2){
-        //     i=c2+1;
-        //     addOnlyToggle(document.getElementById("enemy"+i));
-        //     }
-        //     if (enemyTimeStart[c2]){
-        //     clearTimeout(enemyTimeStart[c2]);
-        //     }
-        //     if (enemyTimeEnd[c2]){
-        //     clearTimeout(enemyTimeEnd[c2]);
-        //     }
-        //     c2=c2+1;
-        // }
-        // let c3=0;
-        // while (c3<(enemyBold.length+allyBold.length)){
-        //     if (flashTimeStart[c3]){
-        //     clearTimeout(flashTimeStart[c3]);
-        //     } 
-        //     if (flashTimeEnd[c3]){
-        //     clearTimeout(flashTimeEnd[c3]);
-        //     }
-        //     c3=c3+1
-        // }
-        // let ally=document.getElementById("ally1");
-        // ally.classList.remove("battleBold");
-        // boss2.classList.remove("battleBold");
     })
     // Adds a EventListener to a button that starts a battle between the boss and allied combos
     // where the combos are shown to be fighting by swaping between bold and regular text
     // it also disables the button while the battle is taking place so the system does not glitch
     let attackButton1=document.getElementById("attackEnemy1");
     attackButton1.addEventListener("click", function(){
-        // let ally=document.getElementById("ally1");
-        // let enemy=document.getElementById("enemy1");
-        // allyBold=setInterval(makeBold,0,ally,1000);
-        // enemyBold=setInterval(makeBold,0,enemy,1000);
-        // setTimeout(() => {
-        // clearInterval(allyBold)
-        // clearInterval(enemyBold)
-        // ally.classList.remove("battleBold");
-        // enemy.classList.remove("battleBold");
-        // },4000)
-        // attackButton1.disabled=true;
-        // setTimeout(() => {
-        //     attackButton1.disabled=false;
-        // },4000)
         alert("you can only use the buttons while there is not an attack going on");
         toggleButtons();
         let foeId="enemy";
@@ -181,72 +115,12 @@ document.addEventListener("DOMContentLoaded", function(){
         removeOnlyToggle(enemies);
         toggle(boss1);
         removeOnlyToggle(boss2);
-        // let c=0;
-        // let c2=0;
-        // while (c<allyBold.length){
-        //     if (allyBold[c]){
-        //         clearInterval(allyBold[c]);
-        //     }
-        //     if (c<allyDiv.children.length-4){
-        //         i=c+1;
-        //         addOnlyToggle(document.getElementById("ally"+i));
-        //     }
-        //     if (allyTimeStart[c]){
-        //     clearTimeout(allyTimeStart[c]);
-        //     }
-        //     if (allyTimeEnd[c]){
-        //     clearTimeout(allyTimeEnd[c]);
-        //     }
-        //     if (flashTimeStart[c2+c]){
-        //     clearTimeout(flashTimeStart[c2+c]);
-        //     } 
-        //     if (flashTimeEnd[c2+c]){
-        //     clearTimeout(flashTimeEnd[c2+c]);
-        //     }
-        //     c=c+1;
-        // }
-        // while (c2<enemyBold.length){
-        //     if (enemyBold[c2]){
-        //     clearInterval(enemyBold[c2]);
-        //     }
-        //     if (enemyTimeStart[c2]){
-        //     clearTimeout(enemyTimeStart[c2]);
-        //     }
-        //     if (enemyTimeEnd[c2]){
-        //     clearTimeout(enemyTimeEnd[c2]);
-        //     }
-        //     if (flashTimeStart[c2+c-1]){
-        //     clearTimeout(flashTimeStart[c2+c-1]);
-        //     } 
-        //     if (flashTimeEnd[c2+c-1]){
-        //     clearTimeout(flashTimeEnd[c2+c-1]);
-        //     }
-        //     c2=c2+1;
-        // }
-        // addOnlyToggle(boss1.children[1]);
-        // let ally=document.getElementById("ally1");
-        // ally.classList.remove("battleBold");
-        // boss1.classList.remove("battleBold");
     })
     // Adds a EventListener to a button that starts a battle between the boss and allied combos
     // where the combos are shown to be fighting by swaping between bold and regular text
     // it also disables the button while the battle is taking place so the system does not glitch
     let attackButton2=document.getElementById("attackBoss1");
     attackButton2.addEventListener("click", function(){
-        // let ally=document.getElementById("ally1");
-        // let boss1=document.getElementById("boss1");
-        // allyBold=setInterval(makeBold,0,ally,1000);
-        // enemyBold=setInterval(makeBold,0,boss1,1000);
-        // setTimeout(() => {
-        // clearInterval(allyBold)
-        // clearInterval(enemyBold)
-        // ally.classList.remove("battleBold");
-        // boss1.classList.remove("battleBold");
-        // },4000);
-        // attackButton2.disabled=true;
-        // setTimeout(() => {
-        //     attackButton2.disabled=false;
-        // },4000);
         alert("you can only use the buttons while there is not an attack going on");
         toggleButtons();
         let foeId="boss1";
@@ -271,54 +145,6 @@ document.addEventListener("DOMContentLoaded", function(){
         removeOnlyToggle(enemies);
         removeOnlyToggle(boss1);
         toggle(boss2);
-        // let c=0;
-        // let c2=0;
-        // while (c<allyBold.length){
-        //     if (allyBold[c]){
-        //         clearInterval(allyBold[c]);
-        //     }
-        //     if (c<allyDiv.children.length-4){
-        //         i=c+1;
-        //         addOnlyToggle(document.getElementById("ally"+i));
-        //     }
-        //     if (allyTimeStart[c]){
-        //     clearTimeout(allyTimeStart[c]);
-        //     }
-        //     if (allyTimeEnd[c]){
-        //     clearTimeout(allyTimeEnd[c]);
-        //     }
-        //     if (flashTimeStart[c2+c-1]){
-        //     clearTimeout(flashTimeStart[c2+c]);
-        //     } 
-        //     if (flashTimeEnd[c2+c-1]){
-        //     clearTimeout(flashTimeEnd[c2+c]);
-        //     }
-        //     c=c+1;
-        // }
-        // while (c2<enemyBold.length){
-        //     if (enemyBold[c2]){
-        //     clearInterval(enemyBold[c2]);
-        //     }
-        //     if (enemyTimeStart[c2]){
-        //     clearTimeout(enemyTimeStart[c2]);
-        //     }
-        //     if (enemyTimeEnd[c2]){
-        //     clearTimeout(enemyTimeEnd[c2]);
-        //     }
-        //     if (flashTimeStart[c2+c-1]){
-        //     clearTimeout(flashTimeStart[c2+c-1]);
-        //     } 
-        //     if (flashTimeEnd[c2+c-1]){
-        //     clearTimeout(flashTimeEnd[c2+c-1]);
-        //     }
-        //     c2=c2+1;
-        // }
-        // addOnlyToggle(boss2.children[1]);
-        // if (disButton){
-        //     clearTimeout(disButton);
-        //     let attackButton3=document.getElementById("attackBoss2");
-        //     attackButton3.disabled=false;
-        // }
     })
     // Adds a EventListener to a button that starts a battle between the boss and allied combos
     // where the combos are shown to be fighting by swaping between bold and regular text
@@ -329,20 +155,6 @@ document.addEventListener("DOMContentLoaded", function(){
         toggleButtons();
         let foeId="boss2";
         battleSim(foeId,attackButton3);
-        // let ally=document.getElementById("ally1");
-        // let boss2=document.getElementById("boss2");
-        // allyBold=setInterval(makeBold,0,ally,1000);
-        // enemyBold=setInterval(makeBold,0,boss2,1000);
-        // setTimeout(() => {
-        // clearInterval(allyBold)
-        // clearInterval(enemyBold)
-        // ally.classList.remove("battleBold");
-        // boss2.classList.remove("battleBold");
-        // },4000);
-        // attackButton3.disabled=true;
-        // setTimeout(() => {
-        //     attackButton3.disabled=false;
-        // },4000)
     })
     checker=setInterval(checkNum,1000);
 })
@@ -368,6 +180,7 @@ function removeOnlyToggle(div){
         div.style.display="none";
     }
 }
+// addOnlyToggle shows a element if it is hidden and leaves it alone if it is not
 function addOnlyToggle(div){
     if (div.style.display==="none"){
         div.style.display="block";
@@ -416,7 +229,6 @@ function comboMaker(num1,num2){
         while (c2<L2){
             if (comboA[c2]==combo){
                 running=true;
-                alert("duplicate detected")
             }
             c2=c2+1;
         }
@@ -432,7 +244,7 @@ function exchange(credits,cost){
     }
     return remainder;
 }
-// allyPower uses classes for the allied combos to get an array of numbers for all the all combos
+// allyPower uses classes for the allied combos to get an array of numbers for the power of all the combos
 function allyPower(){
     let c3=0;
     let L3=document.getElementById("allyDiv").children.length-4;
@@ -440,16 +252,13 @@ function allyPower(){
     while (c3<L3){
         i=c3+1;
         let ally=document.getElementById("ally"+i);
-        console.log("ally",ally);
         let power=parseInt(ally.classList[1].substring(5,ally.classList[1].length));
-        // let power=ally.classList[1][5];
-        console.log("power"+power);
         allyList[c3]=power;
         c3=c3+1;
     }
     return allyList
 }
-// enemyPower uses classes for the enemy combos to get an array of numbers for all the all combos
+// enemyPower uses classes for the enemy combos to get an array of numbers for the power of all the combos
 function enemyPower(){
     let c3=0;
     let L3=document.getElementById("enemies").children.length-2;
@@ -457,19 +266,31 @@ function enemyPower(){
     while (c3<L3){
         i=c3+1;
         let enemy=document.getElementById("enemy"+i);
-        console.log("enemy",enemy);
         let power=parseInt(enemy.classList[1].substring(5,enemy.classList[1].length));
-        console.log("power"+power);
         enemyList[c3]=power;
         c3=c3+1;
     }
-    return enemyList
+    return enemyList;
+}
+// bossPower uses classes for the boss combo to get its power
+function bossPower(foeId){
+    let enemyList=new Array(1);
+    let boss=document.getElementById(foeId).children[1];
+    let power=parseInt(boss.classList[1].substring(5,boss.classList[1].length));
+    enemyList[0]=power;
+    return enemyList;
 }
 // battleSim finds the higher power and if a ally or enemy has won and toggles the loser on a loop doing all the enemies and allies
 function battleSim(foeId,attackButton){
     updateGlobals();
     let allyList=allyPower();
-    let enemyList=enemyPower();
+    let enemyList;
+    if (foeId=="enemy"){
+        enemyList=enemyPower();
+    }else if (foeId=="boss1" || foeId=="boss2"){
+        enemyList=bossPower(foeId);
+        alert("enemyList"+enemyList);
+    }
     let L=allyList.length;
     let L2=enemyList.length;
     let allyTimeStart = new Array(L);
@@ -488,20 +309,22 @@ function battleSim(foeId,attackButton){
     let c8E=1;
     let c9E=0;
     let c10A=0;
-    alert(enemyList);
+    // this while goes through allies and enemies in order and decides the winner and takes the losers power off the winners and
+    // repeates the process with the next ally or enemy depending on who was the winner
     while (c<L && c2<L2){
         if (allyList[c]<=enemyList[c2]){
             enemyList[c2]=enemyList[c2]-allyList[c];
             c=c+1;
             i2=c2+1;
+            // flashTimeStart make enemies and allies flash to show there fighting 
             flashTimeStart[c2+c-1]=setTimeout(() => {
                 p=document.getElementById("ally"+c5A);
                 p2=getEnemy(c8E,foeId);
-                alert("c5A = "+c5A);
                 allyBold[c5A-1]=setInterval(makeBold,0,p,1000);
                 enemyBold[c8E-1]=setInterval(makeBold,0,p2,1000);
                 c5A=c5A+1;
             },4000*(c+c2-1))
+            // flashTimeEnd gets rid of flashing after enemies and allies are finsished fighting
             flashTimeEnd[c2+c-1]=setTimeout(() => {
             if (allyBold[c10A]){
                 clearInterval(allyBold[c10A]);
@@ -513,14 +336,15 @@ function battleSim(foeId,attackButton){
             p.classList.remove("battleBold");
             p2.classList.remove("battleBold");
             },4000*(c+c2));
+            // allyTimeStart hides enemies after the have lost
             allyTimeStart[c-1]=setTimeout(() => {
             c3A=c3A+1;
             p=document.getElementById("ally"+c3A);
             toggle(p);
             },4000*(c+c2))
+            // allyTimeEnd shows enemies after the battle has ended
             allyTimeEnd[c-1]=setTimeout(() => {
             c4A=c4A+1;
-            alert("c4"+c4A);
             p=document.getElementById("ally"+c4A);
             toggle(p);
             toggleButtons();
@@ -529,15 +353,15 @@ function battleSim(foeId,attackButton){
             allyList[c]=allyList[c]-enemyList[c2];
             c2=c2+1;
             i=c+1;
+            // flashTimeStart make enemies and allies flash to show there fighting 
             flashTimeStart[c2-c-1]=setTimeout(() => {
                 p=document.getElementById("ally"+c5A);
-                // alert("enemy c8E = "+c8E);
                 p2=getEnemy(c8E,foeId);
-                alert("c5A = "+c5A);
                 allyBold[c5A-1]=setInterval(makeBold,0,p,1000);
                 enemyBold[c8E-1]=setInterval(makeBold,0,p2,1000);
                 c8E=c8E+1;
             },4000*(c+c2-1))
+            // flashTimeEnd gets rid of flashing after enemies and allies are finsished fighting
             flashTimeEnd[c2+c-1]=setTimeout(() => {
             if (allyBold[c10A]){
                 clearInterval(allyBold[c10A]);
@@ -549,11 +373,13 @@ function battleSim(foeId,attackButton){
             p.classList.remove("battleBold");
             p2.classList.remove("battleBold");
             },4000*(c+c2));
+            // enemyTimeStart hides enemies after the have lost
             enemyTimeStart[c2-1]=setTimeout(() => {
             c6E=c6E+1;
             p2=getEnemy(c6E,foeId);
             toggle(p2);
             },4000*(c+c2))
+            // enemyTimeEnd shows enemies after the battle has ended
             enemyTimeEnd[c2-1]=setTimeout(() => {
             c7E=c7E+1;
             p2=getEnemy(c7E,foeId);
@@ -561,23 +387,45 @@ function battleSim(foeId,attackButton){
             toggleButtons();
             },4000*(L+L2))
         }
-        //console.log("ally"+allyList[c]);
-        //console.log("enemy"+enemyList[c2]);
     }
-    // clear timeout for button
+    // resultTimeout gives a alert based on if the player has won or lost the battle, tells the player was extra money they got if 
+    // they won, gives them the money and adds a enemy or makes the boss more powerful
     resultTimeout=setTimeout(() => {
         if (c==L){
         alert("Battle Lost");
         }
         if (c2==L2){
-        alert("Battle Victory");
+            alert("Battle Victory");
+            if (foeId=="enemy"){
+                alert("You earned 5 money for defeating the boss");
+                addMoney(5);
+                addEnemy();
+            }
+            if (foeId=="boss1"){
+                alert("You earned 8 money for defeating the boss");
+                addMoney(8);
+                upgradeBoss(foeId);
+            }
+            if (foeId=="boss2"){
+                alert("You earned 15 money for defeating the boss");
+                addMoney(15);
+                upgradeBoss(foeId);
+            }
         }
     },4000*(L+L2))
-    
     attackButton.disabled=true;
+    // disButton disables the button to avoid many clicks that can cause glitching
     let disButton=setTimeout(() => {
         attackButton.disabled=false;
     },4000*(L+L2))}
+// addMoney adds the money earned from defeating enemies to the current money a player has
+function addMoney(amount){
+    let moneystr=document.getElementById("money").innerText
+    let L=moneystr.length;
+    let money=parseInt(moneystr.substring(6,L));
+    newMoney=money+amount;
+    document.getElementById("money").innerText="money="+newMoney;
+}
 // returns the next enemy to be processed by battleSim depending on the foeId which changes depending on which button was clicked to rigger battleSim
 function getEnemy(i,foeId){
     if (foeId=="enemy"){
@@ -589,6 +437,7 @@ function getEnemy(i,foeId){
     }
     return p2;
 }
+// toggleButtons disables all the buttons while a attack is happeing to avoid glitches and can be used to toggle them back after an attack has finsished
 function toggleButtons(){
     let attackButton1=document.getElementById("battleEnemy");
     let attackButton2=document.getElementById("battleBoss1");
@@ -603,5 +452,37 @@ function toggleButtons(){
         attackButton3.disabled=false;
     }
 }
-// battleSim()
-// module.exports = exchange;
+// addEnemy creates a p element with an id with enemy then a number which is one more than the last enemies number it also gives 
+// a class of ally-text-color to the element so it is readable but also a another class for the power of the enemy
+function addEnemy(){
+    let num1=4;
+    let num2=4;
+    let combo=comboMaker(num1,num2);
+    let enemyDiv=document.getElementById("enemies");
+    let paraOld=enemyDiv.children[enemyDiv.children.length-2];
+    let allyNum=parseInt(paraOld.id.substring(5,6))+1;
+    let para=document.createElement("p");
+    para.id="enemy"+allyNum;
+    para.setAttribute("class","ally-text-color");
+    let power="power"+Math.floor(Math.random()*10+1);
+    para.classList.add(power);
+    para.innerText=combo;
+    reference=enemyDiv.children[enemyDiv.children.length-1];
+    enemyDiv.insertBefore(para,reference);
+    updateGlobals();
+}
+// upgradeBoss creates a longer combo than the orginal combo for the boss and replaces the old one with the new one but also increases
+// the power class 
+function upgradeBoss(foeId){
+    let bossDiv=document.getElementById(foeId);
+    let p=bossDiv.children[1];
+    let L=p.innerText.length+1;
+    let num1=L;
+    let num2=L;
+    let combo=comboMaker(num1,num2);
+    let orginalPower=parseInt(p.classList[1].substring(5,p.classList[1].length));
+    let power="power"+Math.floor(Math.random()*15+1+orginalPower);
+    p.classList.remove(p.classList[1]);
+    p.classList.add(power);
+    p.innerText=combo;
+}
