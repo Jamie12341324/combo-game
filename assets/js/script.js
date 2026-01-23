@@ -45,27 +45,30 @@ document.addEventListener("DOMContentLoaded", function(){
     button.addEventListener("click", function(){
         let num1=parseInt(document.getElementById("answer-box").value);
         let num2=parseInt(document.getElementById("answer-box2").value);
-        let cost=num1+num2;
-        moneystr=document.getElementById("money").innerText
-        L=moneystr.length;
-        let money=parseInt(moneystr.substring(6,L));
-        let money1=exchange(money,cost);
-        alert(money1);
-        if (money!=money1){
-            document.getElementById("money").innerText="Money="+money1;
-            let combo=comboMaker(num1,num2);
-            let allyDiv1=document.getElementById("allyDiv");
-            let paraOld=allyDiv1.children[allyDiv1.children.length-4];
-            let allyNum=parseInt(paraOld.id.substring(4,5))+1;
-            let para=document.createElement("p");
-            para.id="ally"+allyNum;
-            para.setAttribute("class","ally-text-color");
-            let power="power"+Math.floor(Math.random()*20+1);
-            para.classList.add(power);
-            para.innerText=combo;
-            reference=allyDiv1.children[allyDiv1.children.length-3];
-            allyDiv1.insertBefore(para,reference);
-            updateGlobals();
+        if (num1>0 || num2>0){
+            let cost=num1+num2;
+            moneystr=document.getElementById("money").innerText
+            L=moneystr.length;
+            let money=parseInt(moneystr.substring(6,L));
+            let money1=exchange(money,cost);
+            if (money!=money1){
+                document.getElementById("money").innerText="Money="+money1;
+                let combo=comboMaker(num1,num2);
+                let allyDiv1=document.getElementById("allyDiv");
+                let paraOld=allyDiv1.children[allyDiv1.children.length-4];
+                let allyNum=parseInt(paraOld.id.substring(4,5))+1;
+                let para=document.createElement("p");
+                para.id="ally"+allyNum;
+                para.setAttribute("class","ally-text-color");
+                let power="power"+Math.floor(Math.random()*20+1);
+                para.classList.add(power);
+                para.innerText=combo;
+                reference=allyDiv1.children[allyDiv1.children.length-3];
+                allyDiv1.insertBefore(para,reference);
+                updateGlobals();
+            }
+        }else{
+            alert("You can't summon a combo with a negative number of letters or length")
         }
     })
     // Adds a EventListener to a button that toggles the screen to a enemy background image
@@ -216,7 +219,6 @@ function comboMaker(num1,num2){
     }
     let running=true
     comboA=[document.getElementById("ally1").innerText,"bbb"];
-    alert(comboA);
     while (running){
         c=0;
         combo="";
@@ -399,7 +401,7 @@ function battleSim(foeId,attackButton){
         if (c2==L2){
             alert("Battle Victory");
             if (foeId=="enemy"){
-                alert("You earned 5 money for defeating the boss");
+                alert("You earned 5 money for defeating the enemies");
                 addMoney(5);
                 addEnemy();
             }
