@@ -1,3 +1,5 @@
+// In this file there are no comments to show which parts are copied from tutorials because none of the code is from a tutorial however I did need 
+// some help from copilot with commands relating to intervals, timeouts, clearing them and some scope things
 // global variables for doing things to do with timers that can be cleared from anywhere in the code
 let allyList=allyPower();
 let enemyList=enemyPower();
