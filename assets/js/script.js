@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("answer-box").value=0
     document.getElementById("answer-box2").value=0
     let enemies=document.getElementById("enemies");
-    let boss1=document.getElementById("boss1");
-    let boss2=document.getElementById("boss2");
+    let boss1=document.getElementById("boss1div");
+    let boss2=document.getElementById("boss2div");
     enemies.style.display="none";
     boss1.style.display="none";
     boss2.style.display="none";
@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", function(){
         let instructions=document.getElementById("instructions");
         let summoning=document.getElementById("summoning");
         let enemies=document.getElementById("enemies");
-        let boss1=document.getElementById("boss1");
-        let boss2=document.getElementById("boss2");
+        let boss1=document.getElementById("boss1div");
+        let boss2=document.getElementById("boss2div");
         let main=document.getElementsByClassName("page1");
         if (boss1.style.display==="none" && boss2.style.display==="none"){
             toggle(instructions);
@@ -103,8 +103,8 @@ document.addEventListener("DOMContentLoaded", function(){
         let instructions=document.getElementById("instructions");
         let summoning=document.getElementById("summoning");
         let enemies=document.getElementById("enemies");
-        let boss1=document.getElementById("boss1");
-        let boss2=document.getElementById("boss2");
+        let boss1=document.getElementById("boss1div");
+        let boss2=document.getElementById("boss2div");
         let main=document.getElementsByClassName("page1")
         let exampleId="back2"
         if (enemies.style.display==="none" && boss2.style.display==="none"){
@@ -133,8 +133,8 @@ document.addEventListener("DOMContentLoaded", function(){
         let instructions=document.getElementById("instructions");
         let summoning=document.getElementById("summoning");
         let enemies=document.getElementById("enemies");
-        let boss1=document.getElementById("boss1");
-        let boss2=document.getElementById("boss2");
+        let boss1=document.getElementById("boss1div");
+        let boss2=document.getElementById("boss2div");
         let main=document.getElementsByClassName("page1");
         let exampleId="back3";
         if (enemies.style.display==="none" && boss1.style.display==="none"){
@@ -275,7 +275,7 @@ function enemyPower(){
 // bossPower uses classes for the boss combo to get its power
 function bossPower(foeId){
     let enemyList=new Array(1);
-    let boss=document.getElementById(foeId).children[1];
+    let boss=document.getElementById(foeId+"div").children[1];
     let power=parseInt(boss.classList[1].substring(5,boss.classList[1].length));
     enemyList[0]=power;
     return enemyList;
@@ -431,9 +431,9 @@ function getEnemy(i,foeId){
     if (foeId=="enemy"){
         p2=document.getElementById("enemy"+i);
     }else if (foeId=="boss1"){
-        p2=document.getElementById("boss1").children[1];
+        p2=document.getElementById("boss1div").children[1];
     }else if (foeId=="boss2"){
-        p2=document.getElementById("boss2").children[1];
+        p2=document.getElementById("boss2div").children[1];
     }
     return p2;
 }
