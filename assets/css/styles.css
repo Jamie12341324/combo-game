@@ -4,7 +4,7 @@
     --text-color2:gold;
     --text-color3:pink;
 }
-/* default background image for the home page */
+/* default background image for the home page from pinterest */
 #back1 {
     background-image: url(../images/images-for-website/portal.jpg);
     width: 100%;
@@ -22,7 +22,7 @@
     background-color: black;
     color:white;
     outline: white;
-    margin:35px;
+    margin:15px;
 }
 /* changes the button color to blue when you hover over it to fit with the theme of blue like with the blue portal background image */
 .create-btn-color:hover{
@@ -43,12 +43,12 @@
 .battleBold{
     font-weight: bold;
 }
-/* background image for the first boss */
+/* background image for the first boss from pinterest*/
 #back2 {
     background-image: url(../images/images-for-website/backboss1.jpg);
     width: 100%;
 }
-/* background image for the second boss */
+/* background image for the second boss from pinterest*/
 #back3 {
     background-image: url(../images/images-for-website/backboss2.jpg);
     width: 100%;
@@ -63,7 +63,7 @@
 /* makes sure the text is in space with padding and centered with margin auto and is seperated from things above it for divs*/
 .space{
     margin:auto;
-    padding:100px;
+    padding:50px;
     margin-top:50px;
 }
 /* makes sure text elements like money have enough space */

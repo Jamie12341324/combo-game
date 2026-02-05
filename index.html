@@ -10,9 +10,10 @@
     <title>Document</title>
 </head>
 <body id="back1" class="page1">
-    <main >
+    <main>
     <div class="container">
     <div class="row">
+    <!-- col-12 from bootstrap -->    
     <div class="col-12 space box">
     <h1 class="instructions-text-color text-center">Fantasy Battle Game</h1>
     </div>
@@ -27,6 +28,7 @@
     <p class="instructions-text-color">Game duration 20 minutes</p>
     <p class="instructions-text-color">This game can be played offline</p>
     </div>
+    <!-- col-12 col-md-12 col-lg-6 col-xl-4 from bootstrap -->
     <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="summoning">
     <h1 class="instructions-text-color">Summoning</h1>
     <h2 id="money" class="instructions-text-color space2">Money=8</h2>
@@ -38,38 +40,49 @@
     <br>
     <h2 id="cost" class="instructions-text-color space2">Cost=</h2>
     <br>
+    <!-- btn class from bootstrap -->
     <button id="generator" data-type="submit" class="btn create-btn-color" aria-label="button that summons allies">Summon</button>
     </div>
+    <!-- col-12 col-md-12 col-lg-6 col-xl-4 from bootstrap -->
     <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="allyDiv">
     <h1 class="ally-text-color">Allied combos</h1>
     <p id="ally1" class="ally-text-color power6">aaa</p>
+    <!-- btn class from bootstrap -->
     <button id="battleEnemy" class="btn create-btn-color" aria-label="button that hides instructions and summoning elements and shows enemies">Battle enemies</button>
     <button id="battleBoss1" class="btn create-btn-color" aria-label="button that hides instructions and summoning elements and shows boss1">Battle Boss 1</button>
     <button id="battleBoss2" class="btn create-btn-color" aria-label="button that hides instructions and summoning elements and shows boss2">Battle Boss 2</button>
+    <button id="home" class="btn create-btn-color" aria-label="button that brings you to the home screen">Home</button>
     </div>
-    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box startHidden" id="enemies">
+    <!-- col-12 col-md-12 col-lg-6 col-xl-4 from bootstrap -->
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="enemies">
     <h1 class="ally-text-color">Enemy combos</h1>
     <p id="enemy1" class="ally-text-color power5">bbb</p>
     <p id="enemy2" class="ally-text-color power5">bbb</p>
+    <!-- btn class from bootstrap -->
     <button id="attackEnemy1" class="btn create-btn-color" aria-label="button that starts a battle between the allies and boss1">Attack</button>
     </div>
-    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box startHidden" id="boss1div">
+    <!-- col-12 col-md-12 col-lg-6 col-xl-4 from bootstrap -->
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="boss1div">
     <h1 class="boss1-text-color">Boss 1 combo</h1>
     <p id="boss1" class="boss1-text-color power4">bab</p>
+    <!-- btn class from bootstrap -->
     <button id="attackBoss1" class="btn create-btn-color" aria-label="button that starts a battle between the allies and boss1">Attack</button>
     </div>
-    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box startHidden" id="boss2div">
+    <!-- col-12 col-md-12 col-lg-6 col-xl-4 from bootstrap -->
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4 space box" id="boss2div">
     <h1 class="boss2-text-color">Boss 2 combo</h1>
     <p id="boss2" class="boss2-text-color power7">aba</p>
+    <!-- btn class from bootstrap -->
     <button id="attackBoss2" class="btn create-btn-color" aria-label="button that starts a battle between the allies and boss2">Attack</button>
     </div>
     </div>
     </div>
     </main>
-    <script src="assets/js/script.js"></script>
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 </body>
+<!-- custom javascript -->
+<script src="assets/js/script.js" difer></script>
 </html>
