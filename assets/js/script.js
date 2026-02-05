@@ -90,7 +90,8 @@ document.addEventListener("DOMContentLoaded", function(){
     // is taking place so the system does not glitch
     let attackButton1=document.getElementById("attackEnemy1");
     attackButton1.addEventListener("click", function(){
-        window.alert("you can only use the buttons\n while there is not an attack going on");
+        window.alert("you can only use the buttons "
+            +"while there is not an attack going on");
         toggleButtons();
         let foeId="enemy";
         battleSim(foeId,attackButton1);
@@ -120,7 +121,8 @@ document.addEventListener("DOMContentLoaded", function(){
     // battle is taking place so the system does not glitch
     let attackButton2=document.getElementById("attackBoss1");
     attackButton2.addEventListener("click", function(){
-        window.alert("you can only use the buttons while there is not an attack going on");
+        window.alert("you can only use the buttons "
+            + "while there is not an attack going on");
         toggleButtons();
         let foeId="boss1div";
         battleSim(foeId,attackButton2);
@@ -150,7 +152,8 @@ document.addEventListener("DOMContentLoaded", function(){
     // battle is taking place so the system does not glitch
     let attackButton3=document.getElementById("attackBoss2");
     attackButton3.addEventListener("click", function(){
-        window.alert("you can only use the buttons while there is not an attack going on");
+        window.alert("you can only use the buttons "
+            +"while there is not an attack going on");
         toggleButtons();
         let foeId="boss2div";
         battleSim(foeId,attackButton3);
@@ -232,7 +235,8 @@ function comboMaker(num1,num2){
     let combo="";
     let Ll=letters.length;
     if (num2>Ll){
-        window.alert(num2+" is too many for that option the max is "+Ll+" you can get (a)");
+        window.alert(num2+" is too many for that "
+            +"option the max is "+Ll+" you can get (a)");
         return "a";
     }
     let running=true;
@@ -280,7 +284,9 @@ function allyPower(){
     while (c3<L3){
         let i=c3+1;
         let ally=document.getElementById("ally"+i);
-        let power=parseInt(ally.classList[1].substring(5,ally.classList[1].length));
+        let power=parseInt(
+            ally.classList[1].substring(5,ally.classList[1].length)
+        );
         allyList[c3]=power;
         c3=c3+1;
     }
@@ -296,7 +302,9 @@ function enemyPower(){
     while (c3<L3){
         let i=c3+1;
         let enemy=document.getElementById("enemy"+i);
-        let power=parseInt(enemy.classList[1].substring(5,enemy.classList[1].length));
+        let power=parseInt(
+            enemy.classList[1].substring(5,enemy.classList[1].length)
+        );
         enemyList[c3]=power;
         c3=c3+1;
     }
@@ -314,7 +322,6 @@ function bossPower(foeId){
 // or enemy has won and toggles the loser on a
 // loop doing all the enemies and allies
 function battleSim(foeId,attackButton){
-    // updateGlobals();
     let allyList=allyPower();
     let enemyList;
     if (foeId==="enemy"){
@@ -390,7 +397,6 @@ function battleSim(foeId,attackButton){
             c4A=c4A+1;
             p=document.getElementById("ally"+c4A);
             toggle(p);
-            toggleButtons();
             },4000*(L+L2));
         }else if (allyList[c]>enemyList[c2]){
             allyList[c]=allyList[c]-enemyList[c2];
@@ -424,7 +430,7 @@ function battleSim(foeId,attackButton){
             p.classList.remove("battleBold");
             p2.classList.remove("battleBold");
             },4000*(c+c2));
-            // enemyTimeStart hides enemies after the have lost
+            // enemyTimeStart hides enemies after they have lost
             // setTimeout from copilot
             // enemyTimeStart
             setTimeout(() => {
@@ -439,7 +445,6 @@ function battleSim(foeId,attackButton){
             c7E=c7E+1;
             p2=getEnemy(c7E,foeId);
             toggle(p2);
-            toggleButtons();
             },4000*(L+L2));
         }
     }
@@ -476,6 +481,7 @@ function battleSim(foeId,attackButton){
     // clicks that can cause glitching
     let disButton=setTimeout(() => {
         attackButton.disabled=false;
+        toggleButtons();
     },4000*(L+L2));
 }
 // addMoney adds the money earned from defeating
