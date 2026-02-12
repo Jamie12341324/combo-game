@@ -240,12 +240,16 @@ function comboMaker(num1,num2){
         return "a";
     }
     let running=true;
-    let comboA=[document.getElementById("ally1").innerText,"bbb"];
+    let L3=document.getElementById("allyDiv").children.length-5;
+    comboA= new Array(L3)
+    for (let i=1;i<L3;i++){
+        comboA[i]=document.getElementById("ally"+i).innerText;
+    }
     while (running){
         c=0;
         combo="";
-        while (c<num1){
-            let r=Math.floor(Math.random()*num2);
+        while (c<num2){
+            let r=Math.floor(Math.random()*num1);
             combo=combo+letters[r];
             c=c+1;
         }
