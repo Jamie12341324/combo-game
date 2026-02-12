@@ -33,7 +33,11 @@ document.addEventListener("DOMContentLoaded", function(){
         let num1=parseInt(document.getElementById("answer-box").value);
         let num2=parseInt(document.getElementById("answer-box2").value);
         // || from stack over flow
-        if (num1>0 || num2>0){
+        if (num1>26){
+        window.alert(num1+" is too many for that "
+            +"option the max is 26");
+        }
+        else if (num1>0 && num2>0){
             let cost=num1+num2;
             let moneystr=document.getElementById("money").innerText;
             let Lm=moneystr.length;
@@ -233,12 +237,6 @@ function comboMaker(num1,num2){
         "r","s","t","u","v","w",
         "x","y","z"];
     let combo="";
-    let Ll=letters.length;
-    if (num2>Ll){
-        window.alert(num2+" is too many for that "
-            +"option the max is "+Ll+" you can get (a)");
-        return "a";
-    }
     let running=true;
     let L3=document.getElementById("allyDiv").children.length-5;
     comboA= new Array(L3)
