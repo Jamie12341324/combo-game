@@ -35,7 +35,10 @@ document.addEventListener("DOMContentLoaded", function(){
         // || from stack over flow
         if (num1>26){
         window.alert(num1+" is too many for that "
-            +"option the max is 26");
+            +"option, the maximum is 26");
+        }else if (num2>20){
+            window.alert(num2+" is too many for that "
+            +"option, the maximum is 20");
         }
         else if (num1>1 && num2>1){
             let cost=num1+num2;
