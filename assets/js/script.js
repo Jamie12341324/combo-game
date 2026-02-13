@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 +" a combo with zero letters");
         }else if (num1===1 || num2===1){
             window.alert("You can't summon"
-                +" a combo with one letter");
+                +" a combo with one letter, the minimum number is two");
         }else{
             window.alert("You can't summon"
                 +" a combo with a negative number of letters");
@@ -357,6 +357,17 @@ function battleSim(foeId,attackButton){
     let L=allyList.length;
     let L2=enemyList.length;
     let endTime=endcalc(allyList,enemyList,L,L2);
+    // this part (the part that defines allyList and enemyList)
+    // appears twice because the
+    // variables defined are global and changed in
+    // the function endCalc() when the original versions are required
+    allyList=allyPower();
+    if (foeId==="enemy"){
+        enemyList=enemyPower();
+    // || from stack over flow
+    }else if (foeId==="boss1div" || foeId==="boss2div"){
+        enemyList=bossPower(foeId);
+    }
     let allyBold = new Array(L);
     let enemyBold = new Array(L2);
     let c=0;
