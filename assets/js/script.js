@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
         window.alert(num1+" is too many for that "
             +"option the max is 26");
         }
-        else if (num1>0 && num2>0){
+        else if (num1>1 && num2>1){
             let cost=num1+num2;
             let moneystr=document.getElementById("money").innerText;
             let Lm=moneystr.length;
@@ -64,6 +64,9 @@ document.addEventListener("DOMContentLoaded", function(){
         }else if (num1===0 || num2===0){
             window.alert("You can't summon"
                 +" a combo with zero letters");
+        }else if (num1===1 || num2===1){
+            window.alert("You can't summon"
+                +" a combo with one letter");
         }else{
             window.alert("You can't summon"
                 +" a combo with a negative number of letters");
@@ -239,9 +242,11 @@ function comboMaker(num1,num2){
     let combo="";
     let running=true;
     let L3=document.getElementById("allyDiv").children.length-5;
-    comboA= new Array(L3)
-    for (let i=1;i<L3;i++){
+    let comboA= new Array(L3);
+    let i=1;
+    while (i<L3){
         comboA[i]=document.getElementById("ally"+i).innerText;
+        i=i+1;
     }
     while (running){
         c=0;
@@ -320,6 +325,23 @@ function bossPower(foeId){
     enemyList[0]=power;
     return enemyList;
 }
+// endcalc returns a number for how many combos will die in a battle
+//  which is proportional to when the combos need to be respawned or the end
+function endcalc(allyList,enemyList,L,L2){
+    let c11=0;
+    let c12=0;
+    while (c11<L && c12<L2){
+        if (allyList[c11]<=enemyList[c12]){
+            enemyList[c12]=enemyList[c12]-allyList[c11];
+            c11=c11+1;
+        }else if (allyList[c11]>enemyList[c12]){
+            allyList[c11]=allyList[c11]-enemyList[c12];
+            c12=c12+1;
+        }
+    }
+    let endTime=c11+c12;
+    return endTime;
+}
 // battleSim finds the higher power and if a ally
 // or enemy has won and toggles the loser on a
 // loop doing all the enemies and allies
@@ -334,6 +356,7 @@ function battleSim(foeId,attackButton){
     }
     let L=allyList.length;
     let L2=enemyList.length;
+    let endTime=endcalc(allyList,enemyList,L,L2);
     let allyBold = new Array(L);
     let enemyBold = new Array(L2);
     let c=0;
@@ -399,7 +422,7 @@ function battleSim(foeId,attackButton){
             c4A=c4A+1;
             p=document.getElementById("ally"+c4A);
             toggle(p);
-            },4000*(L+L2));
+            },4000*endTime);
         }else if (allyList[c]>enemyList[c2]){
             allyList[c]=allyList[c]-enemyList[c2];
             c2=c2+1;
@@ -447,7 +470,7 @@ function battleSim(foeId,attackButton){
             c7E=c7E+1;
             p2=getEnemy(c7E,foeId);
             toggle(p2);
-            },4000*(L+L2));
+            },4000*endTime);
         }
     }
     // resultTimeout gives a alert based on if the player
@@ -477,14 +500,14 @@ function battleSim(foeId,attackButton){
                 upgradeBoss(foeId);
             }
         }
-    },4000*(L+L2));
+    },4000*endTime);
     attackButton.disabled=true;
     // disButton disables the button to avoid many
     // clicks that can cause glitching
     let disButton=setTimeout(() => {
         attackButton.disabled=false;
         toggleButtons();
-    },4000*(L+L2));
+    },4000*endTime);
 }
 // addMoney adds the money earned from defeating
 // enemies to the current money a player has
